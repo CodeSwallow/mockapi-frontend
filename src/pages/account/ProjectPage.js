@@ -6,6 +6,7 @@ import LogoutButton from "../../components/LogoutButton";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import ModelFields from "../../components/ModelFields";
+import ModelForm from "../../components/ModelForm";
 
 const client = axios.create({
     baseURL: "https://lqbnnct60e.execute-api.us-east-1.amazonaws.com/dev"
@@ -13,6 +14,7 @@ const client = axios.create({
 
 function ProjectPage({signOut, user}) {
     const [modelToggled, setModelToggled] = useState(null);
+    const [createModel, setCreateModel] = useState(false);
     const [project, setProject] = useState({
         "id": "",
         "title": "",
@@ -31,6 +33,10 @@ function ProjectPage({signOut, user}) {
         } else {
             setModelToggled(model);
         }
+    }
+
+    const toggleCreateModel = () => {
+        setCreateModel(!createModel);
     }
 
     useEffect(() => {
@@ -71,8 +77,7 @@ function ProjectPage({signOut, user}) {
                                     <button
                                         type="button"
                                         className="basis-1/4 text-white rounded-lg mb-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 block p-2.5"
-                                        onClick={() => {
-                                        }}>
+                                        onClick={toggleCreateModel}>
                                         <div className="px-1 text-sm md:text-md flex flex-row w-full gap-4 justify-around">
                                             <p className="self-center">New Model</p>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -93,6 +98,7 @@ function ProjectPage({signOut, user}) {
                                         className="ml-1">{project.models.length}</span></h5>
                                 </div>
                                 <div className="col-span-3 md:col-span-2">
+                                    {createModel && <ModelForm />}
                                     {modelsList}
                                 </div>
                             </div>
