@@ -71,7 +71,9 @@ function DashboardPage({signOut, user}) {
                                 </button>
                             </div>
                             <div className="grid grid-cols-1 gap-y-5 mt-5">
-                                {projectList}
+                                {projects.length > 0
+                                    ? projectList
+                                    : <p className="text-black dark:text-white">No projects found...</p>}
                             </div>
                         </div>
                         <div className="grid grid-cols-1 lg:ml-2 gap-y-5 h-min order-first md:order-last">
