@@ -2,9 +2,27 @@ import React, {useState} from "react";
 
 export default function ModelFields({model, toggleModel, modelToggled}) {
     const [fields, setFields] = useState(model.fields)
+    const [newField, setNewField] = useState("")
     const [fieldsLength, setFieldsLength] = useState(model.fields.length)
     const [modelNumber, setModelNumber] = useState(0)
     const upperCasedModel = model.name[0].toUpperCase() + model.name.substring(1)
+
+    const addField = (e) => {
+        let currentFields = fields.map(item => item.field)
+        if (newField !== "" && !currentFields.includes(newField)) {
+            setFields([...fields, {id: `${newField}-${fields.length}`, field: newField}])
+            setNewField("")
+        }
+    }
+
+    const handleUpdateModel = (e) => {
+        e.preventDefault()
+        console.log(fields)
+    }
+
+    const handleNewFieldChange = (e) => {
+        setNewField(e.target.value)
+    }
 
     const handleFieldChange = (e) => {
         const newFields = fields.map(field => {
@@ -46,6 +64,7 @@ export default function ModelFields({model, toggleModel, modelToggled}) {
             </div>
         )
     })
+
     return (
         <div>
             <div key={model.id}
@@ -77,22 +96,22 @@ export default function ModelFields({model, toggleModel, modelToggled}) {
                     <div
                         className="p-5 mb-4 bg-white dark:bg-gray-900 border border-t-0 border-gray-200 dark:border-gray-700">
                         <p className="mb-2 text-gray-900 dark:text-gray-400 font-light">{model.description}</p>
-                        {fieldsList}
-                        <div className="flex flex-row w-full gap-4">
-                            <input type="text" id="new-field"
-                                   className="basis-2/3 mb-2 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-max p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-pink-500"
-                                   value="New-Field"
-                                   onChange={handleFieldChange}
-                                   required/>
-                            <button
-                                type="button"
-                                className="basis-1/3 text-white rounded-lg mb-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 block p-2.5"
-                                onClick={() => {
-                                }}>
-                                New Field
-                            </button>
-                        </div>
-
+                        <form onSubmit={handleUpdateModel}>
+                            {fieldsList}
+                            <div className="flex flex-row w-full gap-4">
+                                <input type="text" id="new-field"
+                                       className="basis-2/3 mb-2 bg-gray-100 border border-gray-300 placeholder-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-max p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-500 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-pink-500"
+                                       placeholder="New field"
+                                       value={newField}
+                                       onChange={handleNewFieldChange}/>
+                                <button
+                                    type="button"
+                                    className="basis-1/3 text-white rounded-lg mb-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 block p-2.5"
+                                    onClick={addField}>
+                                    New Field
+                                </button>
+                            </div>
+                        </form>
                         <label htmlFor="default-range"
                                className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">
                             {`Generate ${modelNumber} ${model.name} models`}
