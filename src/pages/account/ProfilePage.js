@@ -3,6 +3,8 @@ import {Authenticator} from "@aws-amplify/ui-react";
 import Navbar from "../../components/Navbar";
 import LogoutButton from "../../components/LogoutButton";
 import Footer from "../../components/Footer";
+import AccountBreadcrumb from "../../components/AccountBreadcrumbs";
+import AccountBreadcrumbs from "../../components/AccountBreadcrumbs";
 
 export default function ProfilePage(props) {
 
@@ -12,6 +14,7 @@ export default function ProfilePage(props) {
                 <main>
                     <Navbar accountButton={<LogoutButton signOut={signOut}/>}/>
                     <section className="bg-zinc-100 dark:bg-gray-900 min-h-screen">
+                        <AccountBreadcrumbs/>
                         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                             <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                                 {user.username}

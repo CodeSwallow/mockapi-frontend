@@ -7,6 +7,8 @@ import Footer from "../../components/Footer";
 import axios from "axios";
 import ModelFields from "../../components/ModelFields";
 import ModelForm from "../../components/ModelForm";
+import AccountBreadcrumb from "../../components/AccountBreadcrumbs";
+import AccountBreadcrumbs from "../../components/AccountBreadcrumbs";
 
 const client = axios.create({
     baseURL: "https://lqbnnct60e.execute-api.us-east-1.amazonaws.com/dev"
@@ -61,6 +63,7 @@ function ProjectPage({signOut, user}) {
         <main>
             <Navbar accountButton={<LogoutButton signOut={signOut}/>}/>
             <section className="bg-zinc-100 dark:bg-gray-900 min-h-screen">
+                <AccountBreadcrumbs/>
                 {
                     project.id === ""
                         ? <div className="pb-8 px-4 mx-auto max-w-screen-lg text-center lg:py-8 lg:px-12">

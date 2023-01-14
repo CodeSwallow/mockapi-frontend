@@ -7,6 +7,7 @@ import CreateProjectForm from "../../components/CreateProjectForm";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import LogoutButton from "../../components/LogoutButton";
+import AccountBreadcrumbs from "../../components/AccountBreadcrumbs";
 
 const client = axios.create({
     baseURL: "https://lqbnnct60e.execute-api.us-east-1.amazonaws.com/dev"
@@ -36,7 +37,7 @@ function DashboardPage({signOut, user}) {
     const projectList = projects.map(project => {
         return (
             <div className="project max-h-min" key={project.id}>
-                <Link to={`/account/project/${project.id}`}
+                <Link to={`/account/projects/${project.id}`}
                       onMouseEnter={() => setHoveredProject(project)}
                       className="block max-w-xl p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
@@ -54,6 +55,7 @@ function DashboardPage({signOut, user}) {
         <main>
             <Navbar accountButton={<LogoutButton signOut={signOut}/>}/>
             <section className="bg-zinc-100 dark:bg-gray-900 min-h-screen">
+                <AccountBreadcrumbs/>
                 <div className="pb-8 px-4 mx-auto max-w-screen-xl text-start lg:py-8 lg:px-12">
                     <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 ml-8 md:ml-0 md:text-4xl lg:text-5xl dark:text-white">
                         Dashboard
