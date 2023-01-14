@@ -12,7 +12,7 @@ export default function PublicMainPage() {
                 <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                     <h3 className="mb-8 font-extrabold text-5xl text-gray-900 dark:text-white">
                         Mock API</h3>
-                    <Link to="/account/dashboard"
+                    <Link to="/account/projects"
                           className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-white rounded-full bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600"
                           role="alert">
                         <span className="text-sm font-medium px-4 py-1.5">Get Started</span>
