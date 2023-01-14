@@ -1,6 +1,6 @@
 import React from "react";
 import '@aws-amplify/ui-react/styles.css';
-import {Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import PublicMainPage from "./pages/public/PublicMainPage";
 import DocsPage from "./pages/public/DocsPage";
 import DashboardPage from "./pages/account/DashboardPage";
@@ -33,8 +33,10 @@ function App() {
                     <Route path="/docs" element={<DocsPage/>}/>
                     <Route path="/account">
                         <Route index element={<ProfilePage/>}/>
-                        <Route path="dashboard" element={<DashboardPage/>}/>
-                        <Route path="project/:id" element={<ProjectPage/>}/>
+                        <Route path="projects">
+                            <Route index element={<DashboardPage/>}/>
+                            <Route path=":id" element={<ProjectPage/>}/>
+                        </Route>
                     </Route>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
