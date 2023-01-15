@@ -1,6 +1,6 @@
 import React from "react";
 import '@aws-amplify/ui-react/styles.css';
-import {Link, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import PublicMainPage from "./pages/public/PublicMainPage";
 import DocsPage from "./pages/public/DocsPage";
 import DashboardPage from "./pages/account/DashboardPage";

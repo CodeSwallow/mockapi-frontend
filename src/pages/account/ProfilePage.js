@@ -3,7 +3,6 @@ import {Authenticator} from "@aws-amplify/ui-react";
 import Navbar from "../../components/Navbar";
 import LogoutButton from "../../components/LogoutButton";
 import Footer from "../../components/Footer";
-import AccountBreadcrumb from "../../components/AccountBreadcrumbs";
 import AccountBreadcrumbs from "../../components/AccountBreadcrumbs";
 
 export default function ProfilePage(props) {
