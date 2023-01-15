@@ -111,14 +111,19 @@ export default function ModelFields({model, toggleModel, modelToggled}) {
                                     New Field
                                 </button>
                             </div>
+                            <label htmlFor="default-range"
+                                   className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">
+                                {`Generate ${modelNumber} ${model.name} models`}
+                            </label>
+                            <input id="default-range" type="range" value={modelNumber}
+                                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                                   onChange={handleModelNumberChange}/>
+                            <button
+                                type="submit"
+                                className="w-full text-white rounded-lg mt-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 block p-2.5">
+                                Save
+                            </button>
                         </form>
-                        <label htmlFor="default-range"
-                               className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">
-                            {`Generate ${modelNumber} ${model.name} models`}
-                        </label>
-                        <input id="default-range" type="range" value={modelNumber}
-                               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                               onChange={handleModelNumberChange}/>
                     </div>}
             </div>
         </div>
