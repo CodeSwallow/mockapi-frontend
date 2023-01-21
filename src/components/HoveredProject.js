@@ -4,10 +4,10 @@ import {Link} from "react-router-dom";
 export default function HoveredProject({project}) {
 
     function getProjectModels() {
-        return project ? project.models.map((model, index) => {
+        return project ? project.models.map((model) => {
             return (
-                <li key={index} className="text-black dark:text-white">
-                    {model}
+                <li key={model.id} className="text-black dark:text-white">
+                    {model.title}
                 </li>
             )
             }) : null
@@ -30,7 +30,7 @@ export default function HoveredProject({project}) {
             <ul className="list-disc mb-4 ml-8">
                 {getProjectModels()}
             </ul>
-            <Link to={`/account/project/${project.id}`}
+            <Link to={`/account/projects/${project.id}`}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-2 focus:outline-none focus:ring-pink-800 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 dark:focus:ring-pink-100">
                 Enter Project
                 <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
