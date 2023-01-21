@@ -27,9 +27,6 @@ https://api.codeswallow.com/
 ### View Project Detail
 ![project detail](https://irs-github-images.s3.amazonaws.com/mockapi/project-detail.png)
 
-### Create and Modify Project Models and Model-Fields
-![project models](https://irs-github-images.s3.amazonaws.com/mockapi/modify-model-fields.png)
-
 ### Responsive
 <p align="center">
 <img src="https://irs-github-images.s3.amazonaws.com/mockapi/responsive.png" alt="responsive image" height="350">
